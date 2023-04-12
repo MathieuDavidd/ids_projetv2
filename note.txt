@@ -1,0 +1,20 @@
+### gérer l'input et le set up de la couche overlay
+
+
+# manque : comment passer le virtual ring dans l'input et comment le passer au noeud physique lors du set up
+
+# idée : comment marche le set up des machines 
+
+- executable => lis un input, set up les queues rabbit mq et lis une queue start 
+
+-> quand un client souhaite se connecter => envoie un "connect" dans la queue start et le setup programme envoie le numéro et les numéro des voisins
+
+-> le client va lirela queue et déduire les queues de ses voisins
+
+-> compilation :
+javac -cp amqp-client-5.16.0.jar filename.java
+
+ou avec les .jar de input reader etc... => javac -cp .:amqp-client-5.16.0.jar:input_reader.jar set_up_boot.java
+
+-> lancement :
+java -cp .:amqp-client-5.16.0.jar:slf4j-api-1.7.36.jar:slf4j-simple-1.7.36.jar executable_name
